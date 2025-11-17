@@ -1,0 +1,29 @@
+{
+  "realm": "microstay",
+  "enabled": true,
+  "registrationAllowed": true,
+  "clients": [
+    {
+      "clientId": "microstay-backend",
+      "name": "MicroStay Backend",
+      "publicClient": false,
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oauth2.device.authorization.grant.enabled": "false"
+      }
+    }
+  ],
+  "roles": {
+    "realm": [
+      { "name": "ROLE_USER" },
+      { "name": "ROLE_HOTEL" },
+      { "name": "ROLE_ADMIN" }
+    ]
+  }
+}
+
+
+

@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  backend-dev:
+    profiles:
+      - dev
+    image: maven:3.9-eclipse-temurin-17
+    working_dir: /workspace
+    command: mvn spring-boot:run -Dspring-boot.run.profiles=dev
+    volumes:
+      - ./backend:/workspace
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      JAVA_TOOL_OPTIONS: -Dspring.devtools.restart.enabled=true
+      DB_URL: jdbc:postgresql://postgres:5433/microstay
+      DB_USERNAME: microstay
+      DB_PASSWORD: microstay
+      KEYCLOAK_ISSUER_URI: http://keycloak:8080/realms/microstay
+      KEYCLOAK_JWKS_URI: http://keycloak:8080/realms/microstay/protocol/openid-connect/certs
+      SERVER_PORT: 8080
+      UPLOADS_DIR: /workspace/uploads
+    depends_on:
+      - postgres
+      - keycloak
+    ports:
+      - "8080:8080"
