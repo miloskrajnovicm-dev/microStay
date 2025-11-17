@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "7fa2f0bb-2429-499e-99be-619bc9ee4db9",
+		"name": "MicroStay API",
+		"description": "MVP API for MicroStay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10676113",
+		"_collection_link": "https://crimson-flare-342286.postman.co/workspace/Dummy~83181c70-387a-4558-8c3b-7a535b64f5cf/collection/10676113-7fa2f0bb-2429-499e-99be-619bc9ee4db9?action=share&source=collection_link&creator=10676113"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "hotels",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get hotel by id.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/hotels/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"hotels",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/hotels/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"hotels",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 2975,\n  \"name\": \"string\",\n  \"address\": \"string\",\n  \"contact\": \"string\",\n  \"status\": \"ACTIVE\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "List all hotels.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/hotels",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"hotels"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/hotels",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"hotels"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 6379,\n    \"name\": \"string\",\n    \"address\": \"string\",\n    \"contact\": \"string\",\n    \"status\": \"PENDING_VERIFICATION\"\n  },\n  {\n    \"id\": 6885,\n    \"name\": \"string\",\n    \"address\": \"string\",\n    \"contact\": \"string\",\n    \"status\": \"PENDING_VERIFICATION\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a new hotel. Only users with the 'HOTEL' or 'ADMIN' role can access this endpoint.",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJGTTFVN0V6cFNMOE8yUEhRRDk4QnFidnhza1hlMGd6NFhBVkJiN0R3UENFIn0.eyJleHAiOjE3NjI4NjY0MDEsImlhdCI6MTc2Mjg2NjEwMSwianRpIjoiZDU0NGUzYmItYTYzMi00ODhhLThjZjktNTE5NzUyMjNlODExIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL3JlYWxtcy9taWNyb3N0YXkiLCJzdWIiOiI2ZDk5MzQyMi0wMWY2LTRiM2UtYjhmZS0zMzRiNTgyOTRmNGUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtaWNyb3N0YXktYmFja2VuZCIsInNpZCI6IjM3ZTI3MzEyLTU4NDQtNGIyOC04Mjc5LTc5YjRhOTc2NWY1NyIsImFjciI6IjEiLCJyZXNvdXJjZV9hY2Nlc3MiOnsibWljcm9zdGF5LWJhY2tlbmQiOnsicm9sZXMiOlsiQURNSU4iLCJIT1RFTCJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoic3VwZXJ1c2VyIHN1cGVydXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6InN1cGVydXNlciIsImdpdmVuX25hbWUiOiJzdXBlcnVzZXIiLCJmYW1pbHlfbmFtZSI6InN1cGVydXNlciIsImVtYWlsIjoic3VwZXJ1c2VyQHN1cGVyLnJzIn0.kzZZ0iKh5e0T-ks08aHAoezvhQsaHVa6Dy43aZzo1x-4FpE56AsnMC4WN_KvPeSvo6IC1o4Au73Q86cv3TqprF_Ka3to34JOeC7srfLZGeVKY-EN0RzZvIS6P3dhDUk8BfcQMKMsfzkgPTFBIBgzkEkF_AXA-ML8lHloZTwls5mBbsXBLsaNgW8O2P5EeQWhjPbGd4G-pQIJIE5996HMVxcqxeMjUHqNu3dFokERSc1wh7rtn1X3zThb6PVKNcyFUMy39Edrdn-V6_caXBvjIzANX8tHe8DBV9xHNP3XHL-qRep8h7KqrY36kwQzmPZ79_LSQl5CdJ_FhiU_sN7y_Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 2975,\n  \"name\": \"Hotel Yugoslavia\",\n  \"address\": \"Marsala Tita 14, Novi Sad\",\n  \"contact\": \"0659988771\",\n  \"status\": \"ACTIVE\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/hotels",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"hotels"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 2975,\n  \"name\": \"string\",\n  \"address\": \"string\",\n  \"contact\": \"string\",\n  \"status\": \"ACTIVE\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/hotels",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"hotels"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 2975,\n  \"name\": \"string\",\n  \"address\": \"string\",\n  \"contact\": \"string\",\n  \"status\": \"ACTIVE\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "secure",
+					"item": [
+						{
+							"name": "ping",
+							"item": [
+								{
+									"name": "ping 1",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/secure/ping",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"secure",
+												"ping"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/secure/ping",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"secure",
+														"ping"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"key_0\": {},\n  \"key_1\": {}\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "ping",
+					"item": [
+						{
+							"name": "ping",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/public/ping",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"public",
+										"ping"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/public/ping",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"public",
+												"ping"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"key_0\": \"string\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "KeycloakToken",
+			"item": [
+				{
+					"name": "http://localhost:8081/realms/microstay/protocol/openid-connect/token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "microstay-backend",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "znMeVB42bFa4OE9H3gibIAJIMVRxUozu",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "superuser",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "superuser",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/realms/microstay/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"realms",
+								"microstay",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
